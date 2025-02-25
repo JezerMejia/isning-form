@@ -24,7 +24,7 @@ export default function ClientAdd({ onSubmit }: ClientAddProps) {
   function innerOnSubmit(client: FormSchema) {
     onSubmit(client);
     setOpen(false);
-    toast("Cliente añadido con éxito");
+    toast.success("Cliente añadido con éxito");
   }
 
   return (
