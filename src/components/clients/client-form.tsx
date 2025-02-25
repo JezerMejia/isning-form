@@ -93,7 +93,7 @@ export default function ClientForm({ id, onSubmit }: ClientFormProps) {
             <FormItem>
               <FormLabel>Nombre de usuario</FormLabel>
               <FormControl>
-                <Input placeholder="username" {...field} />
+                <Input placeholder="juanp" {...field} />
               </FormControl>
               <FormDescription>
                 Este es el nombre de usuario público

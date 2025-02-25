@@ -26,7 +26,13 @@ export default function DatePicker({ value, onValueChange }: DatePickerProps) {
           )}
         >
           <CalendarIcon className="mr-2 h-4 w-4" />
-          {value ? format(value, "PP") : <span>Pick a date</span>}
+          {value ? (
+            format(value, "PP")
+          ) : (
+            <span className="text-ellipsis overflow-x-auto">
+              Selecciona una fecha
+            </span>
+          )}
         </Button>
       </PopoverTrigger>
       <PopoverContent className="w-auto p-0">
