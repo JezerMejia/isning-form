@@ -1,5 +1,14 @@
 import { z } from "zod";
 
+export const subscriptionList = ["free", "pro", "business"] as const;
+export const subscriptionLabels: {
+  [key in FormSchema["subscription"]]: string;
+} = {
+  free: "Gratis",
+  pro: "Pro - $9.99",
+  business: "Business - $19.99",
+};
+
 const formSchema = z.object({
   username: z.string().min(2, {
     message: "El nombre de usuario debe tener mínimo 2 caracteres",
@@ -15,9 +24,11 @@ const formSchema = z.object({
     .string()
     .length(16, "La cédula debe ser de 16 caracteres, incluyendo guiones")
     .regex(/\d{3}-\d{6}-\d{4}[a-zA-Z]/, "Formato de cédula incorrecto"),
+  birthDate: z.date({ required_error: "Se requiere una fecha de nacimiento" }),
   gender: z
-    .enum(["not-specified", "feminine", "masculine"] as const)
+    .enum(["not-specified", "female", "male"] as const)
     .default("not-specified"),
+  subscription: z.enum(subscriptionList).default("free"),
   notifyEmail: z.boolean(),
 });
 

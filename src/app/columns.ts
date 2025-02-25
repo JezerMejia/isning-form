@@ -1,10 +1,10 @@
-import { FormSchema } from "@/lib/schemas/client";
+import { FormSchema, subscriptionLabels } from "@/lib/schemas/client";
 import { ColumnDef } from "@tanstack/react-table";
 
 export const columns: ColumnDef<FormSchema>[] = [
   {
     accessorKey: "username",
-    header: "Nombre de usuario",
+    header: "Usuario",
   },
   {
     accessorKey: "firstName",
@@ -21,5 +21,10 @@ export const columns: ColumnDef<FormSchema>[] = [
   {
     accessorKey: "identifier",
     header: "Cédula",
+  },
+  {
+    id: "suscription",
+    header: "Suscripción",
+    accessorFn: (v) => subscriptionLabels[v.subscription],
   },
 ];

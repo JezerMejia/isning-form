@@ -32,7 +32,7 @@ export default function ClientAdd({ onSubmit }: ClientAddProps) {
       <DialogTrigger asChild>
         <Button variant="outline">Añadir cliente</Button>
       </DialogTrigger>
-      <DialogContent>
+      <DialogContent className="overflow-y-scroll max-h-screen">
         <DialogHeader>
           <DialogTitle>Añadir cliente</DialogTitle>
           <DialogDescription>
