@@ -1,5 +1,10 @@
-import { FormSchema, subscriptionLabels } from "@/lib/schemas/client";
+import {
+  FormSchema,
+  genderLabels,
+  subscriptionLabels,
+} from "@/lib/schemas/client";
 import { ColumnDef } from "@tanstack/react-table";
+import { format } from "date-fns";
 
 export const columns: ColumnDef<FormSchema>[] = [
   {
@@ -17,6 +22,19 @@ export const columns: ColumnDef<FormSchema>[] = [
   {
     accessorKey: "email",
     header: "Correo",
+  },
+  {
+    id: "birthDate",
+    header: "Fecha de nacimiento",
+    accessorFn: (v) => {
+      const birthDate = v.birthDate;
+      return format(birthDate, "PP");
+    },
+  },
+  {
+    id: "gender",
+    header: "Género",
+    accessorFn: (v) => genderLabels[v.gender],
   },
   {
     accessorKey: "identifier",
